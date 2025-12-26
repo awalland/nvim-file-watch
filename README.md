@@ -62,22 +62,57 @@ require("file-watch").setup()
 
 ```lua
 require("file-watch").setup({
-  -- Debounce delay in milliseconds (some editors trigger multiple write events)
   debounce_ms = 100,
-
-  -- Show notification when file is reloaded
   notify = true,
-
-  -- Notification level (vim.log.levels.INFO, WARN, ERROR, etc.)
   notify_level = vim.log.levels.INFO,
-
-  -- File patterns to ignore (Lua patterns)
   ignore_patterns = { "%.git/", "%.swp$", "~$", "4913$" },
-
-  -- Automatically start watching files when they're opened
   auto_enable = true,
 })
 ```
+
+### Options
+
+#### `debounce_ms`
+- **Type:** `number`
+- **Default:** `100`
+
+Delay in milliseconds before reloading a file after a change is detected. Many editors (including Neovim itself) trigger multiple file system events when saving a file. The debounce prevents multiple reloads from these rapid successive events. Increase this value if you notice duplicate reload notifications.
+
+#### `notify`
+- **Type:** `boolean`
+- **Default:** `true`
+
+Whether to show notifications when files are reloaded, deleted, or when watching is enabled/disabled. Set to `false` for silent operation.
+
+#### `notify_level`
+- **Type:** `number`
+- **Default:** `vim.log.levels.INFO`
+
+The notification level used for reload messages. Valid values are:
+- `vim.log.levels.DEBUG`
+- `vim.log.levels.INFO`
+- `vim.log.levels.WARN`
+- `vim.log.levels.ERROR`
+
+This affects how notifications are styled and whether they appear based on your `vim.notify` configuration.
+
+#### `ignore_patterns`
+- **Type:** `string[]`
+- **Default:** `{ "%.git/", "%.swp$", "~$", "4913$" }`
+
+List of Lua patterns for file paths that should not be watched. Files matching any of these patterns will be ignored. The default patterns exclude:
+- `%.git/` — Git internal files
+- `%.swp$` — Vim swap files
+- `~$` — Backup files ending with tilde
+- `4913$` — Vim's test file used to check write permissions
+
+Note: These are [Lua patterns](https://www.lua.org/pil/20.2.html), not glob patterns. Use `%.` to match a literal dot.
+
+#### `auto_enable`
+- **Type:** `boolean`
+- **Default:** `true`
+
+When `true`, file watching starts automatically when `setup()` is called and new files are watched as they're opened. Set to `false` if you want to manually control when watching is active using `:FileWatchEnable`.
 
 ## Commands
 
