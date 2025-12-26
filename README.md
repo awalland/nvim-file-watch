@@ -4,6 +4,8 @@ I got tired of reloading open files when vibing with my good friend claude,
 so i asked him to write a neat little file-watch plugin for neovim, that would reload
 open files if they got changed by him in the background.
 
+I have only tested this on my linux machine, i have no idea if it works anywhere else.
+
 
 Real-time file watching for Neovim using libuv's `fs_event` (inotify on Linux).
 
