@@ -1,7 +1,7 @@
 # nvim-file-watch
 
 I got tired of reloading open files when vibing with my good friend claude,
-so i asked him to write a neat little file-watch plugin, that would reload
+so i asked him to write a neat little file-watch plugin for neovim, that would reload
 open files if they got changed by him in the background.
 
 
