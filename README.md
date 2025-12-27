@@ -19,6 +19,10 @@ Automatically reloads files when they change on disk—even while Neovim is in t
 - **Debounced**: Prevents multiple reloads when editors write multiple events
 - **Configurable**: Customize debounce timing, notifications, and ignore patterns
 
+
+## Demo
+[![Demo](https://img.youtube.com/vi/9m9Cd2qpoDU/maxresdefault.jpg)](https://www.youtube.com/watch?v=9m9Cd2qpoDU)
+
 ## Requirements
 
 - Neovim 0.10+ (for `vim.uv` API)
