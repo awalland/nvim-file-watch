@@ -288,10 +288,6 @@ function M.enable()
       watch_buffer(bufnr)
     end
   end
-
-  if config.notify then
-    vim.notify("File watching enabled", config.notify_level)
-  end
 end
 
 ---Disable file watching globally
@@ -308,10 +304,6 @@ function M.disable()
   end
 
   clear_autocmds()
-
-  if config.notify then
-    vim.notify("File watching disabled", config.notify_level)
-  end
 end
 
 ---Toggle file watching
