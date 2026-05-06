@@ -31,6 +31,8 @@ Automatically reloads files when they change on disk—even while Neovim is in t
 
 ### [lazy.nvim](https://github.com/folke/lazy.nvim)
 
+From GitHub:
+
 ```lua
 {
   "awalland/nvim-file-watch",
@@ -38,7 +40,18 @@ Automatically reloads files when they change on disk—even while Neovim is in t
 }
 ```
 
+From Codeberg:
+
+```lua
+{
+  "https://codeberg.org/awalland/nvim-file-watch.git",
+  opts = {},
+}
+```
+
 ### [packer.nvim](https://github.com/wbthomason/packer.nvim)
+
+From GitHub:
 
 ```lua
 use {
@@ -49,12 +62,32 @@ use {
 }
 ```
 
+From Codeberg:
+
+```lua
+use {
+  "https://codeberg.org/awalland/nvim-file-watch.git",
+  config = function()
+    require("file-watch").setup()
+  end,
+}
+```
+
 ### Manual
 
 Clone to your pack directory:
 
+From GitHub:
+
 ```sh
 git clone https://github.com/awalland/nvim-file-watch \
+  ~/.local/share/nvim/site/pack/plugins/start/nvim-file-watch
+```
+
+From Codeberg:
+
+```sh
+git clone https://codeberg.org/awalland/nvim-file-watch.git \
   ~/.local/share/nvim/site/pack/plugins/start/nvim-file-watch
 ```
 
